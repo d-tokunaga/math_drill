@@ -4,7 +4,7 @@ import { BlobProvider } from "@react-pdf/renderer";
 import { faSpinner, faFile } from "@fortawesome/free-solid-svg-icons";
 import { PdfDocumentProps } from './interfaces'
 
-const PdfDocument: React.FC<PdfDocumentProps> = ({ title, document }) => {
+const PdfDocument: React.FC<PdfDocumentProps> = ({ document }) => {
     const { useState, useEffect } = React;
     const [ready, setReady] = useState(false);
 
@@ -31,7 +31,7 @@ const PdfDocument: React.FC<PdfDocumentProps> = ({ title, document }) => {
             if (!loading && url) {
                 return (
                 <a href={url} download>
-                    - Download '{title}' (PDF) <FontAwesomeIcon icon={faFile} />
+                    - PDFをダウンロードする <FontAwesomeIcon icon={faFile} />
                 </a>
                 );
             }

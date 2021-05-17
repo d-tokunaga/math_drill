@@ -5,22 +5,19 @@ import { faSpinner, faFile } from "@fortawesome/free-solid-svg-icons";
 import PdfDocument from "./PdfDocument";
 import TestDocument from "./TestDocument";
 
-import { ApiResponse, ApiData } from "./interfaces";
-
 const PDFLink: React.FC = () => {
 
   const { useState } = React;
 
-  const initialData: Array<ApiData> | undefined = undefined;
-
   const [error, setError] = useState(false);
   const [requesting, setRequesting] = useState(false);
-  const [data, setData] = useState(initialData);
   const [attempts, setAttempts] = useState(0);
   const [plusData, setPlusData] = useState<Array<Number>>([])
   const [minusData, setMinusData] = useState<Array<Number>>([])
+  const [multiplicationData, setMultiplicationData] = useState<Array<Number>>([])
   const [plusFormulaData, setPlusFormulaData] = useState<Array<String>>([])
   const [minusFormulaData, setMinusFormulaData] = useState<Array<String>>([])
+  const [multiplicationFormulaData, setMultiplicationFormulaData] = useState<Array<String>>([])
   const [checkNum, setCheckNum] = useState(false)
   const [checkFormula, setCheckFormula] = useState(false)
  
@@ -28,32 +25,49 @@ const PDFLink: React.FC = () => {
   const createNum = () => {
     var plusData = [];
     var minusData = [];
+    var multiplicationData = [];
     const min = 10 ;
     const max = 1000 ;
-    for (let i = 0; i < 500; i++) {
-        const random_num = Math.floor( Math.random() * (max + 1 - min) ) + min ;
-        plusData.push(random_num)
+    const multiplicationMin = 2;
+    const multiplicationMax = 9;
+    for (let i = 0; i < 100; i++) {
+        const random_plus_num = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+        const random_minus_num = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+        const random_multiplication_num = Math.floor( Math.random() * (multiplicationMax + 1 - multiplicationMin) ) + multiplicationMin ;
+        plusData.push(random_plus_num)
+        minusData.push(random_minus_num)
+        multiplicationData.push(random_multiplication_num)
     }
     setPlusData(plusData)
-
-    for (let i = 0; i < 500; i++) {
-        const random_num = Math.floor( Math.random() * (max + 1 - min) ) + min ;
-        minusData.push(random_num)
-    }
     setMinusData(minusData)
+    setMultiplicationData(multiplicationData)
+
     setCheckNum(true)
   }
 
   const createFormula = () => {
+    // あとでany修正
     var data1:any = [];
     var data2:any = [];
+    var data3:any = [];
     for (let i = 0; i < 60; i+=2) {
         const create_plus_formula: string = `${plusData[i]} + ${plusData[i+1]} =`
-        const create_minus_formula: string = `${minusData[i]} - ${minusData[i+1]} =`
+        const create_multiplication_formula: string = `${multiplicationData[i]} × ${multiplicationData[i+1]} =`
         data1.push(create_plus_formula)
-        data2.push(create_minus_formula)
+        data3.push(create_multiplication_formula)
     }
     setPlusFormulaData(data1)
+    setMultiplicationFormulaData(data3)
+
+    for (let i = 0; i < 60; i+=2) {
+        if (minusData[i] > minusData[i+1]) {
+            const create_minus_formula: string = `${minusData[i]} - ${minusData[i+1]} =`
+            data2.push(create_minus_formula)
+        } else {
+            const create_minus_formula: string = `${minusData[i+1]} - ${minusData[i]} =`
+            data2.push(create_minus_formula)
+        }
+    }
     setMinusFormulaData(data2)
 
     setCheckFormula(true)
@@ -77,12 +91,11 @@ const PDFLink: React.FC = () => {
             </>
         }
         <br />
-        <span className="clickable" onClick={() => data}>
-        <p>- Request this document <FontAwesomeIcon icon={faFile} /></p>
-        </span>
+        <br />
         <PdfDocument
-            title="けいさん！"
-            document={<TestDocument data1={plusFormulaData} data2={minusFormulaData}/>}
+            document={
+                <TestDocument data1={plusFormulaData} data2={minusFormulaData} data3={multiplicationFormulaData} />
+            }
         />
         {/* <p>
         {!requesting && !data && !error && (
