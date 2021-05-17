@@ -15,6 +15,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Divider from '@material-ui/core/Divider';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import clsx from 'clsx';
+import HomeIcon from '@material-ui/icons/Home';
 import Filter1Icon from '@material-ui/icons/Filter1';
 import Filter2Icon from '@material-ui/icons/Filter2';
 import Filter3Icon from '@material-ui/icons/Filter3';
@@ -27,9 +28,9 @@ import {
     Link
   } from "react-router-dom";
 
-export interface Home {
-    children: React.ReactNode;
-}
+// export interface Home {
+//     children: React.ReactNode;
+// }
 
   const drawerWidth = 240;
 
@@ -94,6 +95,10 @@ export interface Home {
               flexGrow: 1,
               padding: theme.spacing(3),
           },
+          topLink: {
+            color: 'white',
+            textDecoration: "none",
+          },
           link: {
               textDecoration: "none",
               color: theme.palette.text.secondary,
@@ -137,7 +142,7 @@ const Home = () => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap>
-                        計算問題PDFジェネレーター
+                    <Link to="/" className={classes.topLink}>計算問題PDFジェネレーター</Link>
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -161,6 +166,14 @@ const Home = () => {
                 </div>
                 <Divider />
                 <List>
+                    <Link to="/" className={classes.link}>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <HomeIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="HOME" />
+                        </ListItem>
+                    </Link>
                     <Link to="/mix" className={classes.link}>
                         <ListItem button>
                             <ListItemIcon>

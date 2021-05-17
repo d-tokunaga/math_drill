@@ -1,7 +1,7 @@
 import { render } from "react-dom";
 import PDFLink from "./PDFLink";
 import PlusOnly from "./PlusOnly";
-// import Home from "./Home";
+import Main from "./Main";
 import "./styles.css";
 import "./static/css/global.module.css";
 import {
@@ -23,7 +23,7 @@ function App() {
           </Route>
           {/* <Route exact path='/mix' component={PDFLink}/> */}
           <Route path="/">
-            <PDFLink />
+            <Main />
           </Route>
           {/* <Route exact path='/' component={Home}/> */}
         </Switch>
