@@ -1,21 +1,34 @@
-import * as React from "react";
 import { render } from "react-dom";
-import PdfDocument from "./PdfDocument";
-
 import PDFLink from "./PDFLink";
-
+import PlusOnly from "./PlusOnly";
+// import Home from "./Home";
 import "./styles.css";
-import TestDocument from "./TestDocument";
+import "./static/css/global.module.css";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+  } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <PDFLink />
-      {/* <PdfDocument
-          title="Cost Disclosure Document"
-          document={<TestDocument />}
-        /> */}
-    </div>
+    <Router>
+        <div className="App">
+        <Switch>
+          <Route path="/plus-only">
+            <PlusOnly />
+          </Route>
+          <Route path="/mix">
+            <PDFLink />
+          </Route>
+          {/* <Route exact path='/mix' component={PDFLink}/> */}
+          <Route path="/">
+            <PDFLink />
+          </Route>
+          {/* <Route exact path='/' component={Home}/> */}
+        </Switch>
+        </div>
+    </Router>
   );
 }
 

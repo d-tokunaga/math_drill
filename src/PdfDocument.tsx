@@ -30,9 +30,9 @@ const PdfDocument: React.FC<PdfDocumentProps> = ({ document }) => {
             }
             if (!loading && url) {
                 return (
-                <a href={url} download>
+                <h3><a href={url} download>
                     - PDFをダウンロードする <FontAwesomeIcon icon={faFile} />
-                </a>
+                </a></h3>
                 );
             }
             if (error) {
