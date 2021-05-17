@@ -1,12 +1,10 @@
 import React from 'react'
-
 import PdfDocument from "./PdfDocument";
 import TestDocument from "./TestDocument";
-
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-
 import Home from "./Home";
+import './static/css/content.css';
 
 const PlusOnly = () => {
     const { useState } = React;
@@ -70,33 +68,35 @@ const PlusOnly = () => {
         <>
             <Home />
             <br />
-            {checkNum
-                ? <h2>数字を生成しました!!</h2>
-                :
-                <>
-                    <br /><br />
-                    <h1>足し算だけ</h1><br />
-                    <h2>ランダムな数字を生成する</h2>
-                    <br />
-                    {/* <p>加算最小値</p> */}
-                    <TextField id="outlined-basic" label="加算最小値" variant="outlined" type='number' defaultValue={10} onChange={(e:any) => setPlusMinState(e.target.value)} />
-                    {/* <p>加算最大値</p> */}
-                    <TextField id="outlined-basic" label="加算最大値" variant="outlined" type="number" defaultValue={1000} onChange={(e:any) => setPlusMaxState(e.target.value)} />
-                    <br />
-                    <br />
-                    <Button variant="contained" color="primary" type='button' onClick={() => createNum()}>数字を確定</Button>
-                    <Button style={{ margin: 10}} type='button' onClick={() => window.location.reload()} variant="contained" color="secondary">リセット</Button>
-                </>
-            }
-            <br />
-            {numDone ? (checkFormula ? <h2>PDFを生成しました!!</h2> : <><Button variant="contained" color="primary" type='button' onClick={() => createFormula()}>PDFを生成する</Button></>) : ""}
-            <br />
-            <br />
-            {formulaDone ? <PdfDocument
-                document={
-                    <TestDocument data1={plusFormulaData1} data2={plusFormulaData2} data3={plusFormulaData3} />
+            <div className="main_content">
+                {checkNum
+                    ? <h2>数字を生成しました!!</h2>
+                    :
+                    <>
+                        <br /><br />
+                        <h1>足し算だけ</h1><br />
+                        <h2>ランダムな数字を生成する</h2>
+                        <br />
+                        {/* <p>加算最小値</p> */}
+                        <TextField id="outlined-basic" label="加算最小値" variant="outlined" type='number' defaultValue={10} onChange={(e:any) => setPlusMinState(e.target.value)} />
+                        {/* <p>加算最大値</p> */}
+                        <TextField id="outlined-basic" label="加算最大値" variant="outlined" type="number" defaultValue={1000} onChange={(e:any) => setPlusMaxState(e.target.value)} />
+                        <br />
+                        <br />
+                        <Button variant="contained" color="primary" type='button' onClick={() => createNum()}>数字を確定</Button>
+                        <Button style={{ margin: 10}} type='button' onClick={() => window.location.reload()} variant="contained" color="secondary">リセット</Button>
+                    </>
                 }
-            /> : ""}
+                <br />
+                {numDone ? (checkFormula ? <h2>PDFを生成しました!!</h2> : <><Button variant="contained" color="primary" type='button' onClick={() => createFormula()}>PDFを生成する</Button></>) : ""}
+                <br />
+                <br />
+                {formulaDone ? <PdfDocument
+                    document={
+                        <TestDocument data1={plusFormulaData1} data2={plusFormulaData2} data3={plusFormulaData3} />
+                    }
+                /> : ""}
+            </div>
         </>
     )
 }

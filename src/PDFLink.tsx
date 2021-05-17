@@ -37,16 +37,19 @@ const PDFLink: React.FC = () => {
     var plusData = [];
     var minusData = [];
     var multiplicationData = [];
-    const plusMin = plusMinState;
-    const plusMax = plusMaxState ;
-    const minusMin = minusMinState;
-    const minusMax = minusMaxStae;
-    const multiplicationMin = multiplicationMinState;
-    const multiplicationMax = multiplicationMaxState;
+    const plusMin:number = plusMinState;
+    const plusMax:number = plusMaxState;
+    const minusMin:number = minusMinState;
+    const minusMax:number = minusMaxStae;
+    const multiplicationMin:number = multiplicationMinState;
+    const multiplicationMax:number = multiplicationMaxState;
     for (let i = 0; i < 100; i++) {
-        const random_plus_num = Math.floor( Math.random() * (plusMax + 1 - plusMin) ) + plusMin ;
-        const random_minus_num = Math.floor( Math.random() * (minusMax + 1 - minusMin) ) + minusMin ;
-        const random_multiplication_num = Math.floor( Math.random() * (multiplicationMax + 1 - multiplicationMin) ) + multiplicationMin ;
+        const random_plus_num = Math.floor(Math.random() * (plusMax - plusMin) + plusMin);
+        // console.log('plusMax', plusMax)
+        // console.log('plusMin', plusMin)
+        // console.log(Math.floor(Math.random() * (plusMax - plusMin) + plusMin))
+        const random_minus_num = Math.floor(Math.random() * (minusMax - minusMin) + minusMin);
+        const random_multiplication_num = Math.floor(Math.random() * (multiplicationMax - multiplicationMin)  + multiplicationMin) ;
         plusData.push(random_plus_num)
         minusData.push(random_minus_num)
         multiplicationData.push(random_multiplication_num)
