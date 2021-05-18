@@ -97,10 +97,10 @@ function MinusOnly() {
                 <h1>引き算だけ</h1><br />
                 <h2>ランダムな数字を生成する</h2>
                 <br />
-                {/* <p>加算最小値</p> */}
-                <TextField id="outlined-basic" label="加算最小値" variant="outlined" type='number' defaultValue={10} onChange={(e:any) => setMinusMinState(e.target.value)} />
-                {/* <p>加算最大値</p> */}
-                <TextField id="outlined-basic" label="加算最大値" variant="outlined" type="number" defaultValue={1000} onChange={(e:any) => setMinusMaxState(e.target.value)} />
+                {/* <p>減算最小値</p> */}
+                <TextField id="outlined-basic" label="減算最小値" variant="outlined" type='number' defaultValue={10} onChange={(e:any) => setMinusMinState(e.target.value)} />
+                {/* <p>減算最大値</p> */}
+                <TextField id="outlined-basic" label="減算最大値" variant="outlined" type="number" defaultValue={1000} onChange={(e:any) => setMinusMaxState(e.target.value)} />
                 <br />
                 <br />
                 <Button variant="contained" color="primary" type='button' onClick={() => createNum()}>数字を確定</Button>

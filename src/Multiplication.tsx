@@ -78,10 +78,10 @@ function Multiplication() {
                   <h1>掛け算だけ</h1><br />
                   <h2>ランダムな数字を生成する</h2>
                   <br />
-                  {/* <p>加算最小値</p> */}
-                  <TextField id="outlined-basic" label="加算最小値" variant="outlined" type='number' defaultValue={2} onChange={(e:any) => setMultiplicationMinState(e.target.value)} />
-                  {/* <p>加算最大値</p> */}
-                  <TextField id="outlined-basic" label="加算最大値" variant="outlined" type="number" defaultValue={9} onChange={(e:any) => setMultiplicationMaxState(e.target.value)} />
+                  {/* <p>乗算最小値</p> */}
+                  <TextField id="outlined-basic" label="乗算最小値" variant="outlined" type='number' defaultValue={2} onChange={(e:any) => setMultiplicationMinState(e.target.value)} />
+                  {/* <p>乗算最大値</p> */}
+                  <TextField id="outlined-basic" label="乗算最大値" variant="outlined" type="number" defaultValue={9} onChange={(e:any) => setMultiplicationMaxState(e.target.value)} />
                   <br />
                   <br />
                   <Button variant="contained" color="primary" type='button' onClick={() => createNum()}>数字を確定</Button>
