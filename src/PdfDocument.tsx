@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BlobProvider } from "@react-pdf/renderer";
 import { faSpinner, faFile } from "@fortawesome/free-solid-svg-icons";
 import { PdfDocumentProps } from './interfaces'
+import Button from '@material-ui/core/Button';
+import './static/css/content.css'
 
 const PdfDocument: React.FC<PdfDocumentProps> = ({ document }) => {
     const { useState, useEffect } = React;
@@ -30,9 +32,7 @@ const PdfDocument: React.FC<PdfDocumentProps> = ({ document }) => {
             }
             if (!loading && url) {
                 return (
-                <h3><a href={url} download>
-                    - PDFをダウンロードする <FontAwesomeIcon icon={faFile} />
-                </a></h3>
+                <Button className="checkButton" variant="contained" color="primary"　type='button'><a href={url} download>PDFをダウンロードする <FontAwesomeIcon icon={faFile} /></a></Button>
                 );
             }
             if (error) {
