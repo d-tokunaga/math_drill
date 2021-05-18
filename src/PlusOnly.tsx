@@ -7,7 +7,7 @@ import Home from "./Home";
 import './static/css/content.css';
 
 const PlusOnly = () => {
-    const { useState } = React;
+  const { useState } = React;
 
   const [plusMinState, setPlusMinState] = useState<number>(10);
   const [plusMaxState, setPlusMaxState] = useState<number>(1000);

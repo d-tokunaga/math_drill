@@ -1,5 +1,4 @@
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -19,12 +18,10 @@ import HomeIcon from '@material-ui/icons/Home';
 import Filter1Icon from '@material-ui/icons/Filter1';
 import Filter2Icon from '@material-ui/icons/Filter2';
 import Filter3Icon from '@material-ui/icons/Filter3';
+import Filter4Icon from '@material-ui/icons/Filter4';
 import { createStyles, makeStyles, useTheme, Theme } from '@material-ui/core/styles';
 
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link
   } from "react-router-dom";
 
@@ -196,6 +193,14 @@ const Home = () => {
                                 <Filter3Icon />
                             </ListItemIcon>
                             <ListItemText primary="引き算だけ" />
+                        </ListItem>
+                    </Link>
+                    <Link to="/multiplication-only" className={classes.link}>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <Filter4Icon />
+                            </ListItemIcon>
+                            <ListItemText primary="掛け算だけ" />
                         </ListItem>
                     </Link>
                 </List>

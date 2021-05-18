@@ -2,6 +2,7 @@ import { render } from "react-dom";
 import PDFLink from "./PDFLink";
 import PlusOnly from "./PlusOnly";
 import MinusOnly from "./MinusOnly";
+import MultiplicationOnly from './Multiplication';
 import Main from "./Main";
 import "./styles.css";
 import "./static/css/global.module.css";
@@ -16,6 +17,9 @@ function App() {
     <Router>
         <div className="App">
         <Switch>
+          <Route path="/multiplication-only">
+            <MultiplicationOnly />
+          </Route>
           <Route path="/minus-only">
             <MinusOnly />
           </Route>
