@@ -190,6 +190,14 @@ const Home = () => {
                             <ListItemText primary="足し算だけ" />
                         </ListItem>
                     </Link>
+                    <Link to="/minus-only" className={classes.link}>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <Filter3Icon />
+                            </ListItemIcon>
+                            <ListItemText primary="引き算だけ" />
+                        </ListItem>
+                    </Link>
                 </List>
                 <Divider />
             </Drawer>
