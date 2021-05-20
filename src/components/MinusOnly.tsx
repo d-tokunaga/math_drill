@@ -4,7 +4,7 @@ import TestDocument from "./TestDocument";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Home from "./Home";
-import './static/css/content.css';
+import '../static/css/content.css';
 
 function MinusOnly() {
     const { useState } = React;
@@ -22,6 +22,7 @@ function MinusOnly() {
     const [checkNum, setCheckNum] = useState(false)
     const [checkFormula, setCheckFormula] = useState(false)
 
+    // 数字を生成する
     const createNum = () => {
       var minusData1 = [];
       var minusData2 = [];
@@ -44,8 +45,9 @@ function MinusOnly() {
       setNumDone(true)
     }
   
+    // 式を生成する
     const createFormula = () => {
-      // あとでany修正
+
       var data1:any = [];
       var data2:any = [];
       var data3:any = [];
@@ -77,10 +79,12 @@ function MinusOnly() {
         }
     }
 
+    // Stateにセット
     setMinusFormulaData1(data1)
     setMinusFormulaData2(data2)
     setMinusFormulaData3(data3)
 
+    // セット完了をチェックする
     setCheckFormula(true)
     setFormulaDone(true)
     }
